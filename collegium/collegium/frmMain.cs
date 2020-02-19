@@ -26,7 +26,7 @@ namespace collegium
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            tsTime.Text    = DateTime.Now.ToString();
+            tsTime.Text  = DateTime.Now.ToString();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -37,6 +37,20 @@ namespace collegium
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            setTsUserName("bruno");
+            setTsFrmName(this.Name);
+        }
+        private void setTsUserName(string userName)
+        {
+            tsUserName.Text = userName; 
+        }
+        private void setTsFrmName(string frmName)
+        {
+            tsFrmName.Text = frmName;
         }
     }
 }

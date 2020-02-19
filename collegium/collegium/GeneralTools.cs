@@ -17,5 +17,8 @@ namespace collegium
         {
             MessageBox.Show(message, caption, MessageBoxButtons.OK);
         }
+
+
+
     }
 }
