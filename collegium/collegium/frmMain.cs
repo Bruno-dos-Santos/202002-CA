@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer.Operations;
 
 
 namespace collegium
 {
     public partial class frmMain : Form
     {
-        GeneralTools tools = new GeneralTools();
+        GeneralTools generalTools = new GeneralTools(); 
         public frmMain()
         {
             InitializeComponent();
@@ -36,7 +37,10 @@ namespace collegium
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (generalTools.confirmationBox("confirm?")) 
+            {
+                Application.Exit();
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)

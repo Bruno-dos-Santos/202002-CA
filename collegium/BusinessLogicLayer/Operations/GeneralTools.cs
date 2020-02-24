@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace collegium
+namespace BusinessLogicLayer.Operations
+
 {
-    class GeneralTools
+    public class GeneralTools
     {
         public bool confirmationBox(string message, string caption = "Confirmation")
         {
