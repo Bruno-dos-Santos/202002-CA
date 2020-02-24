@@ -65,27 +65,33 @@ BEGIN
 
     BEGIN TRY
 
-        INSERT INTO dbo.Users(LoginName, PasswordHash, FirstName, LastName)
-        VALUES(@pLoginName, HASHBYTES('SHA2_512', @pPassword), @pFirstName, @pLastName);
-
-        SET @responseMessage='Success';
-        
         EXEC dbo.uspAddLog
           @pLoginName = @pActiveUser,  
           @pEvent      = @pLoginName, 
           @pType       = 'Info',
           @pOperation  = 'New register',
-          @pTable      = 'User';
-           
+          @pTable      = 'Users';
+        
+        INSERT INTO dbo.Users(LoginName, PasswordHash, FirstName, LastName)
+        VALUES(@pLoginName, HASHBYTES('SHA2_512', @pPassword), @pFirstName, @pLastName);
+
+        SET @responseMessage='Success';
+      
     END TRY
     BEGIN CATCH
         SET @responseMessage=ERROR_MESSAGE() 
+        EXEC dbo.uspAddLog
+          @pLoginName  = @pActiveUser,  
+          @pEvent      = @responseMessage, 
+          @pType       = 'Error',
+          @pOperation  = 'New register',
+          @pTable      = 'Users';
     END CATCH
 
 END
 go
 
-CREATE TABLE dbo.Student
+CREATE TABLE dbo.Students
 (
     StudentID INT IDENTITY(1,1) NOT NULL,
     FirstName VARCHAR(20) NOT NULL,
@@ -104,3 +110,43 @@ CREATE TABLE dbo.Student
     isDeleted VARCHAR(1) NOT NULL default 'N',
     CONSTRAINT [PK_Student_StudentID] PRIMARY KEY (StudentID)	
 )
+
+go
+CREATE PROCEDURE dbo.uspAddStudent
+    @pFirstName VARCHAR(20),
+    @pLastName VARCHAR(20),
+    @pEmail VARCHAR(40),
+    @pPhone VARCHAR(10),
+    @pAddressLine1 VARCHAR(40),
+    @pAddressLine2 VARCHAR(40),
+    @pCity VARCHAR(20),
+    @pCounty VARCHAR(20),
+    @pLevel VARCHAR(10),
+    @pCourse VARCHAR(20),
+    @pStudentNumber INT,
+    @pActiveUser VARCHAR(20) = NULL, 
+    @responseMessage VARCHAR(250) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON
+
+    BEGIN TRY
+        
+        INSERT INTO dbo.Students(FirstName, LastName, Email, Phone, AddressLine1, AddressLine2,City, County, Level, Course, StudentNumber)
+        VALUES(@pFirstName, @pLastName, @pEmail, @pPhone, @pAddressLine1, @pAddressLine2,@pCity, @pCounty, @pLevel, @pCourse, @pStudentNumber);
+
+        SET @responseMessage='Success';
+
+    END TRY
+    BEGIN CATCH
+        SET @responseMessage=ERROR_MESSAGE() 
+        EXEC dbo.uspAddLog
+          @pLoginName = @pActiveUser,  
+          @pEvent      = @responseMessage, 
+          @pType       = 'Error',
+          @pOperation  = 'New register',
+          @pTable      = 'Students';
+    END CATCH
+
+END
+go
