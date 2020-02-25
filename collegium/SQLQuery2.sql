@@ -69,7 +69,7 @@ BEGIN
           @pLoginName = @pActiveUser,  
           @pEvent      = @pLoginName, 
           @pType       = 'Info',
-          @pOperation  = 'New register',
+          @pOperation  = 'Insert',
           @pTable      = 'Users';
         
         INSERT INTO dbo.Users(LoginName, PasswordHash, FirstName, LastName)
@@ -84,7 +84,7 @@ BEGIN
           @pLoginName  = @pActiveUser,  
           @pEvent      = @responseMessage, 
           @pType       = 'Error',
-          @pOperation  = 'New register',
+          @pOperation  = 'Insert',
           @pTable      = 'Users';
     END CATCH
 
@@ -137,6 +137,13 @@ BEGIN
 
         SET @responseMessage='Success';
 
+        EXEC dbo.uspAddLog
+          @pLoginName = @pActiveUser,  
+          @pEvent      = @responseMessage, 
+          @pType       = 'Info',
+          @pOperation  = 'Insert',
+          @pTable      = 'Students';
+
     END TRY
     BEGIN CATCH
         SET @responseMessage=ERROR_MESSAGE() 
@@ -144,7 +151,7 @@ BEGIN
           @pLoginName = @pActiveUser,  
           @pEvent      = @responseMessage, 
           @pType       = 'Error',
-          @pOperation  = 'New register',
+          @pOperation  = 'Insert',
           @pTable      = 'Students';
     END CATCH
 

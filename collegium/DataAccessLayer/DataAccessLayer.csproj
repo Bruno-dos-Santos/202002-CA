@@ -47,6 +47,8 @@
     <Compile Include="Entities\EStudent.cs" />
     <Compile Include="Entities\EUser.cs" />
     <Compile Include="Operations\OLog.cs" />
+    <Compile Include="Operations\OStudent.cs" />
+    <Compile Include="Operations\OUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

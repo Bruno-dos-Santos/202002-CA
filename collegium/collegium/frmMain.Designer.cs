@@ -52,6 +52,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mydbDataSet1 = new collegium.mydbDataSet();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,7 +71,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1437, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1437, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -150,6 +151,7 @@
             this.viewDatabaseHistoryToolStripMenuItem.Name = "viewDatabaseHistoryToolStripMenuItem";
             this.viewDatabaseHistoryToolStripMenuItem.Size = new System.Drawing.Size(292, 34);
             this.viewDatabaseHistoryToolStripMenuItem.Text = "View Database History";
+            this.viewDatabaseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewDatabaseHistoryToolStripMenuItem_Click);
             // 
             // utilitiesToolStripMenuItem
             // 
@@ -162,7 +164,7 @@
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(157, 34);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.usersToolStripMenuItem.Text = "User&s";
             // 
             // helpToolStripMenuItem
@@ -221,11 +223,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(285, 435);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(696, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1437, 766);
             this.dataGridView1.TabIndex = 2;
             // 
             // mydbDataSet1
@@ -233,11 +236,20 @@
             this.mydbDataSet1.DataSetName = "mydbDataSet";
             this.mydbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1437, 100);
+            this.panel1.TabIndex = 3;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 834);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -283,6 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private mydbDataSet mydbDataSet1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

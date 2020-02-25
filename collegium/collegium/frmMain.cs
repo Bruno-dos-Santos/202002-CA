@@ -46,15 +46,23 @@ namespace collegium
         private void frmMain_Load(object sender, EventArgs e)
         {
             setTsUserName("bruno");
-            setTsFrmName(this.Name);
+            setTsFrmName();
         }
         private void setTsUserName(string userName)
         {
-            tsUserName.Text = userName; 
+            tsUserName.Text = userName;
         }
-        private void setTsFrmName(string frmName)
+        private void setTsFrmName(string frmName = "frmMain")
         {
             tsFrmName.Text = frmName;
+        }
+
+        private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setTsFrmName("frmHistoryLog");
+            frmHistoryLog obj = new frmHistoryLog();
+            obj.ShowDialog();
+            setTsFrmName();
         }
     }
 }
