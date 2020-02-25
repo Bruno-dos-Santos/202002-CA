@@ -1,4 +1,13 @@
-﻿CREATE TABLE dbo.Logs
+﻿DROP PROCEDURE [dbo].uspAddStudent;
+DROP PROCEDURE [dbo].uspAddLog;
+DROP PROCEDURE [dbo].uspAddUser;
+DROP TABLE Logs;
+DROP TABLE Students;
+Drop Table Users;
+
+go
+
+CREATE TABLE dbo.Logs
 (
     LogID INT IDENTITY(1,1) NOT NULL,
     LoginName VARCHAR(20),
@@ -17,8 +26,7 @@ CREATE PROCEDURE dbo.uspAddLog
     @pEvent VARCHAR(100),
     @pType VARCHAR(20) = NULL, 
     @pOperation VARCHAR(10) = NULL, 
-    @pTable VARCHAR(20) = NULL,
-    @responseMessage NVARCHAR(250) OUTPUT
+    @pTable VARCHAR(20) = NULL
 AS
 BEGIN
     SET NOCOUNT ON
@@ -28,11 +36,9 @@ BEGIN
         INSERT INTO dbo.Logs (LoginName, EventInfo, TypeEvent, Operation, TableName)
         VALUES(@pLoginName, @pEvent, @pType, @pOperation, @pTable )
 
-        SET @responseMessage='Success'
-
     END TRY
     BEGIN CATCH
-        SET @responseMessage=ERROR_MESSAGE() 
+
     END CATCH
 
 END
@@ -70,8 +76,8 @@ BEGIN
           @pEvent      = @pLoginName, 
           @pType       = 'Info',
           @pOperation  = 'Insert',
-          @pTable      = 'Users';
-        
+          @pTable      = 'Users'
+          
         INSERT INTO dbo.Users(LoginName, PasswordHash, FirstName, LastName)
         VALUES(@pLoginName, HASHBYTES('SHA2_512', @pPassword), @pFirstName, @pLastName);
 
@@ -85,7 +91,7 @@ BEGIN
           @pEvent      = @responseMessage, 
           @pType       = 'Error',
           @pOperation  = 'Insert',
-          @pTable      = 'Users';
+          @pTable      = 'Users'
     END CATCH
 
 END
