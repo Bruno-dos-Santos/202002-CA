@@ -64,5 +64,10 @@ namespace collegium
             obj.ShowDialog();
             setTsFrmName();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
