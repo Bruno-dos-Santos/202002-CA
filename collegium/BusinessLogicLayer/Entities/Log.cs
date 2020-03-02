@@ -15,7 +15,5 @@ namespace DataAccessLayer.Entities
         public string Operation { get; set; }
         public string TableName { get; set; }
         public string EventInfo { get; set; }
-
-
     }
 }

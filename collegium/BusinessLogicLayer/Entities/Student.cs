@@ -21,8 +21,6 @@ namespace DataAccessLayer.Entities
         public string Level { get; set; }
         public string Course { get; set; }
         public int StudentNumber { get; set; }
-        public string created_at { get; set; }
-        public int isDeleted { get; set; }
 
         protected Student()
         {
@@ -61,8 +59,6 @@ namespace DataAccessLayer.Entities
             Level = row.Field<string>("Level");
             Course = row.Field<string>("Course");
             StudentNumber = row.Field<int>("StudentNumber");
-            created_at = row.Field<DateTime>("created_at").ToString();
-            isDeleted = row.Field<int>("isDeleted");
         }
 
         private static string GetCourseFromForm(string text)

@@ -34,7 +34,7 @@ namespace collegium
 
         private void refreshGrip()
         {
-            DataTable dt = logRepository.RefreshGrid();
+            DataTable dt = logRepository.RefreshGrid(txtLogin.Text, cmbType.Text, cmbOperation.Text, cmbTable.Text);
                         
             dgHistoryLog.DataSource = dt;
             dgHistoryLog.Refresh();
@@ -42,7 +42,16 @@ namespace collegium
 
         private void btClean_Click(object sender, EventArgs e)
         {
+            txtLogin.Text = "";
+            cmbOperation.Text = "All";
+            cmbTable.Text = "All";
+            cmbType.Text = "All";
             refreshGrip();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
