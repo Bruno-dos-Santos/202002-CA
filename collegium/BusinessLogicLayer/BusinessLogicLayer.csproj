@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Log.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Operations\GeneralTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,16 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer.Operations;
-
+using collegium.Students;
+using collegium.Users;
+using DataAccessLayer.Entities;
+using DataAccessLayer.Repository;
 
 namespace collegium
 {
     public partial class frmMain : Form
     {
-        GeneralTools generalTools = new GeneralTools(); 
+        public List<Student> Students { get; set; }
         public frmMain()
         {
             InitializeComponent();
+
+            var student = new StudentRepository();
+            Students = student.GetAll().ToList();
+            
+            var source = new BindingSource();
+            source.DataSource = Students;
+            dataGridView1.DataSource = source;
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -37,7 +47,7 @@ namespace collegium
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (generalTools.confirmationBox("confirm?")) 
+            if (GeneralTools.ConfirmationBox("confirm?")) 
             {
                 Application.Exit();
             }
@@ -65,9 +75,39 @@ namespace collegium
             setTsFrmName();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var newStudentForm = new FormNewStudent();
 
+            newStudentForm.Show();
+        }
+
+        private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var updateStudentForm = new FormUpdateStudent();
+
+            updateStudentForm.Show();
+        }
+
+        private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var deleteStudentForm = new FormDeleteStudent();
+
+            deleteStudentForm.Show();
+        }
+
+        private void newUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var userNewForm = new FormNewUser();
+
+            userNewForm.Show();
+        }
+
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var deleteForm = new FormDeleteUser();
+
+            deleteForm.Show();
         }
     }
 }

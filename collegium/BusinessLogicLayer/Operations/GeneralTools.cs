@@ -10,18 +10,18 @@ using System.Windows.Forms;
 namespace BusinessLogicLayer.Operations
 
 {
-    public class GeneralTools
+    public static class GeneralTools
     {
-        public bool confirmationBox(string message, string caption = "Confirmation")
+        public static bool ConfirmationBox(string message, string caption = "Confirmation")
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;
         }
-        public void warningBox(string message, string caption = "Warning")
+        public static void WarningBox(string message, string caption = "Warning")
         {
             MessageBox.Show(message, caption, MessageBoxButtons.OK);
         }
 
-        public bool IsValid(string emailaddress)
+        public static bool IsValid(string emailaddress)
         {
             try
             {

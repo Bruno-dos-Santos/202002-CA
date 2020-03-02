@@ -42,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Entities\ELog.cs" />
-    <Compile Include="Entities\EStudent.cs" />
-    <Compile Include="Entities\EUser.cs" />
-    <Compile Include="Operations\OLog.cs" />
-    <Compile Include="Operations\OStudent.cs" />
-    <Compile Include="Operations\OUser.cs" />
+    <Compile Include="Repository\LogRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">
+      <Project>{b66501df-9c2e-4ddc-b9da-4ffa5ce6e54c}</Project>
+      <Name>BusinessLogicLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

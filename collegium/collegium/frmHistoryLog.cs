@@ -8,23 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccessLayer.Operations;
+using DataAccessLayer.Entities;
+using DataAccessLayer.Repository;
 
 namespace collegium
 {
     public partial class frmHistoryLog : Form
     {
-        OLog oLog = new OLog();
+        LogRepository logRepository = new LogRepository();
         public frmHistoryLog()
         {
             InitializeComponent();
+
+            refreshGrip();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -37,16 +34,10 @@ namespace collegium
 
         private void refreshGrip()
         {
-            DataTable dt = oLog.refreshGrid();
+            DataTable dt = logRepository.RefreshGrid();
                         
             dgHistoryLog.DataSource = dt;
-            MessageBox.Show(dt.Rows.Count.ToString());
             dgHistoryLog.Refresh();
-        }
-
-        private void pnlFilter_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btClean_Click(object sender, EventArgs e)

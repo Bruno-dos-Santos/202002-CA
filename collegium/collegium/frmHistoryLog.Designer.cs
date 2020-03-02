@@ -53,11 +53,12 @@
             this.dgHistoryLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHistoryLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgHistoryLog.Location = new System.Drawing.Point(0, 0);
+            this.dgHistoryLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgHistoryLog.Name = "dgHistoryLog";
             this.dgHistoryLog.ReadOnly = true;
             this.dgHistoryLog.RowHeadersWidth = 62;
             this.dgHistoryLog.RowTemplate.Height = 28;
-            this.dgHistoryLog.Size = new System.Drawing.Size(1488, 770);
+            this.dgHistoryLog.Size = new System.Drawing.Size(992, 500);
             this.dgHistoryLog.TabIndex = 0;
             // 
             // pnlFilter
@@ -75,16 +76,17 @@
             this.pnlFilter.Controls.Add(this.lblLogin);
             this.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlFilter.Location = new System.Drawing.Point(0, 0);
+            this.pnlFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(1488, 212);
+            this.pnlFilter.Size = new System.Drawing.Size(992, 138);
             this.pnlFilter.TabIndex = 1;
-            this.pnlFilter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlFilter_Paint);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1259, 154);
+            this.btnExit.Location = new System.Drawing.Point(839, 100);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(99, 29);
+            this.btnExit.Size = new System.Drawing.Size(66, 19);
             this.btnExit.TabIndex = 10;
             this.btnExit.Text = "&Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -92,9 +94,10 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(1259, 113);
+            this.btnFilter.Location = new System.Drawing.Point(839, 73);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(99, 29);
+            this.btnFilter.Size = new System.Drawing.Size(66, 19);
             this.btnFilter.TabIndex = 9;
             this.btnFilter.Text = "&Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
@@ -102,9 +105,10 @@
             // 
             // btClean
             // 
-            this.btClean.Location = new System.Drawing.Point(1259, 73);
+            this.btClean.Location = new System.Drawing.Point(839, 47);
+            this.btClean.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btClean.Name = "btClean";
-            this.btClean.Size = new System.Drawing.Size(99, 30);
+            this.btClean.Size = new System.Drawing.Size(66, 19);
             this.btClean.TabIndex = 8;
             this.btClean.Text = "&Clean";
             this.btClean.UseVisualStyleBackColor = true;
@@ -117,9 +121,10 @@
             "All",
             "Students",
             "Users"});
-            this.comboBox3.Location = new System.Drawing.Point(157, 155);
+            this.comboBox3.Location = new System.Drawing.Point(105, 101);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(314, 28);
+            this.comboBox3.Size = new System.Drawing.Size(211, 21);
             this.comboBox3.TabIndex = 7;
             this.comboBox3.Text = "All";
             // 
@@ -128,9 +133,10 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "All"});
-            this.comboBox2.Location = new System.Drawing.Point(157, 113);
+            this.comboBox2.Location = new System.Drawing.Point(105, 73);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(314, 28);
+            this.comboBox2.Size = new System.Drawing.Size(211, 21);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.Text = "All";
             // 
@@ -141,64 +147,70 @@
             "All",
             "Info",
             "Error"});
-            this.comboBox1.Location = new System.Drawing.Point(157, 70);
+            this.comboBox1.Location = new System.Drawing.Point(105, 45);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(314, 28);
+            this.comboBox1.Size = new System.Drawing.Size(211, 21);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.Tag = "";
             this.comboBox1.Text = "All";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 30);
+            this.textBox1.Location = new System.Drawing.Point(105, 19);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 26);
+            this.textBox1.Size = new System.Drawing.Size(211, 20);
             this.textBox1.TabIndex = 4;
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(4, 78);
+            this.lblType.Location = new System.Drawing.Point(3, 51);
+            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(43, 20);
+            this.lblType.Size = new System.Drawing.Size(31, 13);
             this.lblType.TabIndex = 3;
             this.lblType.Text = "Type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 122);
+            this.label2.Location = new System.Drawing.Point(3, 79);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Operation";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 164);
+            this.label1.Location = new System.Drawing.Point(3, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Table";
             // 
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(4, 36);
+            this.lblLogin.Location = new System.Drawing.Point(3, 23);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(56, 20);
+            this.lblLogin.Size = new System.Drawing.Size(39, 13);
             this.lblLogin.TabIndex = 0;
             this.lblLogin.Text = "Login: ";
             // 
             // frmHistoryLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 770);
+            this.ClientSize = new System.Drawing.Size(992, 500);
             this.Controls.Add(this.pnlFilter);
             this.Controls.Add(this.dgHistoryLog);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmHistoryLog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View Database History";
