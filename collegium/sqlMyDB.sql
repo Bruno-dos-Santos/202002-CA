@@ -442,7 +442,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pCity = N'Dublin',
 		@pCounty = N'Dublin',
 		@pCountry = N'Ireland',
-		@pLevel = N'undergrad',
+		@pLevel = N'Undergrad',
 		@pCourse = N'Software Development',
 		@pStudentNumber = 1712345,
 		@pActiveUser = N'admin';
@@ -457,7 +457,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pCity = N'Galway',
 		@pCounty = N'Galway',
 		@pCountry = N'Ireland',
-		@pLevel = N'undergrad',
+		@pLevel = N'Undergrad',
 		@pCourse = N'Arts',
 		@pStudentNumber = 1712346,
 		@pActiveUser = N'bruno';
@@ -472,7 +472,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pCity = N'Donegal',
 		@pCounty = N'Donegal',
 		@pCountry = N'Ireland',
-		@pLevel = N'undergrad',
+		@pLevel = N'Undergrad',
 		@pCourse = N'business',
 		@pStudentNumber = 1712347,
 		@pActiveUser = N'admin';
