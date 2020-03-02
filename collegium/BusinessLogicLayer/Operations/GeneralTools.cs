@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -42,6 +43,31 @@ namespace BusinessLogicLayer.Operations
             {
                 return false;
             }
+        }
+
+        public static void txtBox_Enter(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                (sender as TextBox).BackColor = Color.Yellow;
+            }
+            else if (sender is ComboBox)
+            {
+                (sender as ComboBox).BackColor = Color.Yellow;
+            }
+
+        }
+        public static void txtBox_Leave(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                (sender as TextBox).BackColor = Color.White;
+            }
+            else if (sender is ComboBox)
+            {
+                (sender as ComboBox).BackColor = Color.White;
+            }
+
         }
 
 

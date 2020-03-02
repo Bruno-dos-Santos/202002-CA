@@ -48,5 +48,20 @@ namespace collegium
 
             return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, country, level, course, studentNumber);
         }
+
+
+        private void FormNewStudent_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBox_Enter(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Enter(sender, e);
+        }
+        private void txtBox_Leave(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Leave(sender, e);
+        }
     }
 }

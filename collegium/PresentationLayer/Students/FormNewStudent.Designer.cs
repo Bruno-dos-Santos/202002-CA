@@ -162,6 +162,8 @@
             this.txtBox_firstName.Name = "txtBox_firstName";
             this.txtBox_firstName.Size = new System.Drawing.Size(816, 31);
             this.txtBox_firstName.TabIndex = 0;
+            this.txtBox_firstName.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_firstName.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_surname
             // 
@@ -170,6 +172,8 @@
             this.txtBox_surname.Name = "txtBox_surname";
             this.txtBox_surname.Size = new System.Drawing.Size(816, 31);
             this.txtBox_surname.TabIndex = 1;
+            this.txtBox_surname.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_surname.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_email
             // 
@@ -178,6 +182,8 @@
             this.txtBox_email.Name = "txtBox_email";
             this.txtBox_email.Size = new System.Drawing.Size(816, 31);
             this.txtBox_email.TabIndex = 2;
+            this.txtBox_email.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_email.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_phone
             // 
@@ -186,6 +192,8 @@
             this.txtBox_phone.Name = "txtBox_phone";
             this.txtBox_phone.Size = new System.Drawing.Size(816, 31);
             this.txtBox_phone.TabIndex = 3;
+            this.txtBox_phone.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_phone.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_addressLine2
             // 
@@ -194,6 +202,8 @@
             this.txtBox_addressLine2.Name = "txtBox_addressLine2";
             this.txtBox_addressLine2.Size = new System.Drawing.Size(816, 31);
             this.txtBox_addressLine2.TabIndex = 5;
+            this.txtBox_addressLine2.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_addressLine2.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_addressLine1
             // 
@@ -202,6 +212,8 @@
             this.txtBox_addressLine1.Name = "txtBox_addressLine1";
             this.txtBox_addressLine1.Size = new System.Drawing.Size(816, 31);
             this.txtBox_addressLine1.TabIndex = 4;
+            this.txtBox_addressLine1.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_addressLine1.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtBox_studentNumber
             // 
@@ -210,6 +222,8 @@
             this.txtBox_studentNumber.Name = "txtBox_studentNumber";
             this.txtBox_studentNumber.Size = new System.Drawing.Size(816, 31);
             this.txtBox_studentNumber.TabIndex = 10;
+            this.txtBox_studentNumber.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_studentNumber.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // btn_SaveStudent
             // 
@@ -266,6 +280,8 @@
             this.txtBox_city.Name = "txtBox_city";
             this.txtBox_city.Size = new System.Drawing.Size(816, 31);
             this.txtBox_city.TabIndex = 6;
+            this.txtBox_city.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_city.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // cmbCounty
             // 
@@ -304,11 +320,13 @@
             "Wexford",
             "Wicklow"});
             this.cmbCounty.Location = new System.Drawing.Point(291, 429);
-            this.cmbCounty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCounty.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCounty.Name = "cmbCounty";
             this.cmbCounty.Size = new System.Drawing.Size(816, 33);
             this.cmbCounty.TabIndex = 7;
             this.cmbCounty.Text = "Dublin";
+            this.cmbCounty.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.cmbCounty.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // cmbCourse
             // 
@@ -328,6 +346,8 @@
             this.cmbCourse.Size = new System.Drawing.Size(816, 33);
             this.cmbCourse.TabIndex = 9;
             this.cmbCourse.Text = "Law";
+            this.cmbCourse.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.cmbCourse.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // FormNewStudent
             // 
@@ -359,6 +379,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "FormNewStudent";
             this.Text = "New Student";
+            this.Load += new System.EventHandler(this.FormNewStudent_Load);
             this.grBox.ResumeLayout(false);
             this.grBox.PerformLayout();
             this.ResumeLayout(false);
