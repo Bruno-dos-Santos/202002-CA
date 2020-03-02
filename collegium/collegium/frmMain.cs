@@ -55,12 +55,13 @@ namespace collegium
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            setTsUserName("bruno");
+            GeneralTools.SetUserLogged("bruno");
+            setTsUserName();
             setTsFrmName();
         }
-        private void setTsUserName(string userName)
+        private void setTsUserName()
         {
-            tsUserName.Text = userName;
+            tsUserName.Text = GeneralTools.GetUserLogged();
         }
         private void setTsFrmName(string frmName = "frmMain")
         {

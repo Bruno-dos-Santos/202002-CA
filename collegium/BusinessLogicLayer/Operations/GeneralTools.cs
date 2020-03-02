@@ -12,6 +12,16 @@ namespace BusinessLogicLayer.Operations
 {
     public static class GeneralTools
     {
+        private static string LoginName { get; set; }
+
+        public static void SetUserLogged(string loginName)
+        {
+            LoginName = loginName;
+        }
+        public static string GetUserLogged()
+        {
+            return LoginName;
+        }
         public static bool ConfirmationBox(string message, string caption = "Confirmation")
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;

@@ -41,11 +41,12 @@ namespace collegium
             var addressline2 = txtBox_addressLine2.Text;
             var city = txtBox_city.Text;
             var county = cmbCounty.Text;
+            var country = "Ireland";
             var level = radButton_postgrade.Text;
-            var course = txtBox_course.Text;
+            var course = cmbCourse.Text;
             var studentNumber = Convert.ToInt32(txtBox_studentNumber.Text);
 
-            return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, level, course, studentNumber);
+            return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, country, level, course, studentNumber);
         }
     }
 }

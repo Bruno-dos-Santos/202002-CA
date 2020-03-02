@@ -42,9 +42,9 @@ namespace collegium.Students
             txtBox_addressLine1.Text = student.AddressLine1;
             txtBox_addressLine2.Text = student.AddressLine2;
             txtBox_city.Text = student.City;
-            txtBox_country.Text = student.Country;
+            cmbCounty.Text = student.Country;
             radButton_postgrade.Checked = student.Level.Length > 0 ? true : false;
-            txtBox_course.Text = student.Course;
+            cmbCourse.Text = student.Course;
             txtBox_studentNumber.Text = Convert.ToString(student.StudentNumber);
         }
 
@@ -57,9 +57,9 @@ namespace collegium.Students
             txtBox_addressLine1.Text = String.Empty;
             txtBox_addressLine2.Text = String.Empty;
             txtBox_city.Text = String.Empty;
-            txtBox_country.Text = String.Empty;
+            cmbCounty.Text = String.Empty;
             radButton_postgrade.Checked =  false;
-            txtBox_course.Text = String.Empty;
+            cmbCourse.Text = String.Empty;
             txtBox_studentNumber.Text = Convert.ToString(String.Empty);
         }
 
@@ -83,12 +83,13 @@ namespace collegium.Students
             var addressline1 = txtBox_addressLine1.Text;
             var addressline2 = txtBox_addressLine2.Text;
             var city = txtBox_city.Text;
-            var county = txtBox_country.Text;
+            var county = cmbCounty.Text;
+            var country = "Ireland";
             var level = radButton_postgrade.Text;
-            var course = txtBox_course.Text;
+            var course = cmbCourse.Text;
             var studentNumber = Convert.ToInt32(txtBox_studentNumber.Text);
 
-            return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, level, course, studentNumber);
+            return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, country, level, course, studentNumber);
         }
     }
 }

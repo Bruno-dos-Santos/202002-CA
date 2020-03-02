@@ -18,6 +18,8 @@ namespace DataAccessLayer.Entities
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string County { get; set; }
+
         public string Level { get; set; }
         public string Course { get; set; }
         public int StudentNumber { get; set; }
@@ -27,7 +29,7 @@ namespace DataAccessLayer.Entities
 
         }
 
-        public static Student CreateStudent(string firstName, string lastName, string email, string phone, string addressLine1, string addressLine2, string city, string county, string level, string course, int studentNumber)
+        public static Student CreateStudent(string firstName, string lastName, string email, string phone, string addressLine1, string addressLine2, string city, string county, string country,  string level, string course, int studentNumber)
         {
             return new Student
             {
@@ -38,8 +40,9 @@ namespace DataAccessLayer.Entities
                 AddressLine1 = addressLine1,
                 AddressLine2 = addressLine2,
                 City = city,
-                Country = county,
-                Course = GetCourseFromForm(course),
+                Country = country,
+                County = county,
+                Course = course,
                 Level = level,
                 StudentNumber = studentNumber
             };
@@ -55,7 +58,8 @@ namespace DataAccessLayer.Entities
             AddressLine1 = row.Field<string>("AddressLine1");
             AddressLine2 = row.Field<string>("AddressLine2");
             City = row.Field<string>("City");
-            Country = row.Field<string>("County");
+            Country = row.Field<string>("Country");
+            County = row.Field<string>("County");
             Level = row.Field<string>("Level");
             Course = row.Field<string>("Course");
             StudentNumber = row.Field<int>("StudentNumber");

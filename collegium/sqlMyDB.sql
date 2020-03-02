@@ -6,6 +6,7 @@ DROP PROCEDURE uspDeleteUser;
 DROP PROCEDURE uspGetAllStudents;
 DROP PROCEDURE uspUpdateStudent;
 DROP PROCEDURE uspUpdateUser;
+DROP PROCEDURE uspLogin;
 
 DROP TABLE Logs;
 DROP TABLE Students;
@@ -58,6 +59,7 @@ CREATE TABLE dbo.Users
 (
     UserID INT IDENTITY(1,1) NOT NULL,
     LoginName VARCHAR(20) NOT NULL,
+	Salt UNIQUEIDENTIFIER NOT NULL,
     PasswordHash BINARY(64) NOT NULL,
     FirstName VARCHAR(20) NULL,
     LastName VARCHAR(20) NULL,
@@ -77,10 +79,12 @@ AS
 BEGIN
     SET NOCOUNT ON
 
-    BEGIN TRY
+	DECLARE @salt UNIQUEIDENTIFIER=NEWID() 
+    
+	BEGIN TRY
 
-        INSERT INTO dbo.Users(LoginName, PasswordHash, FirstName, LastName)
-        VALUES(@pLoginName, HASHBYTES('SHA2_512', @pPassword), @pFirstName, @pLastName);
+        INSERT INTO dbo.Users(LoginName, PasswordHash, Salt, FirstName, LastName)
+        VALUES(@pLoginName, HASHBYTES('SHA2_512', @pPassword+CAST(@salt AS NVARCHAR(36))), @salt, @pFirstName, @pLastName);
 
         DECLARE @responseMessage varchar(20)
         SET @responseMessage='Success';
@@ -367,8 +371,43 @@ BEGIN
     END CATCH
 
 END
+
 go
 
+CREATE PROCEDURE dbo.uspLogin
+    @pLoginName NVARCHAR(20),
+    @pPassword NVARCHAR(50),
+    @responseMessage NVARCHAR(100)='' OUTPUT
+AS
+BEGIN
+
+    SET NOCOUNT ON
+
+    DECLARE @userID INT
+
+    IF EXISTS (SELECT TOP 1 UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName)
+    BEGIN
+        SET @userID=(SELECT UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND PasswordHash=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))))
+
+       IF(@userID IS NULL)
+          SET @responseMessage='Incorrect password'
+       ELSE 
+           SET @responseMessage='User successfully logged in'
+    END
+    ELSE
+       SET @responseMessage='Invalid login'
+	
+	
+    EXEC dbo.uspAddLog
+		  @pLoginName  = @pLoginName,  
+          @pEvent      = @responseMessage, 
+          @pType       = 'Info',
+          @pOperation  = 'Login',
+          @pTable      = 'Users';
+ 
+END
+
+go
 
 -- adding default data over the tables.
 EXEC [dbo].[uspAddUser]

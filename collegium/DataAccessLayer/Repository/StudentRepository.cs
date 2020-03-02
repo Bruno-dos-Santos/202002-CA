@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogicLayer.Operations;
 
 namespace DataAccessLayer.Repository
 {
@@ -30,10 +31,12 @@ namespace DataAccessLayer.Repository
                     command.Parameters.Add(new SqlParameter("@pAddressLine1", student.AddressLine1));
                     command.Parameters.Add(new SqlParameter("@pAddressLine2", student.AddressLine2));
                     command.Parameters.Add(new SqlParameter("@pCity", student.City));
-                    command.Parameters.Add(new SqlParameter("@pCounty", student.Country));
+                    command.Parameters.Add(new SqlParameter("@pCounty", student.County));
+                    command.Parameters.Add(new SqlParameter("@pCountry", student.Country));
                     command.Parameters.Add(new SqlParameter("@pLevel", student.Level));
                     command.Parameters.Add(new SqlParameter("@pCourse", student.Course));
                     command.Parameters.Add(new SqlParameter("@pStudentNumber", student.StudentNumber));
+                    command.Parameters.Add(new SqlParameter("@pActiveUser", GeneralTools.GetUserLogged()));
 
                     var rowsAffected = command.ExecuteNonQuery();
 
@@ -65,6 +68,8 @@ namespace DataAccessLayer.Repository
                     command.Parameters.Add(new SqlParameter("@pLevel", student.Level));
                     command.Parameters.Add(new SqlParameter("@pCourse", student.Course));
                     command.Parameters.Add(new SqlParameter("@pStudentNumber", student.StudentNumber));
+                    command.Parameters.Add(new SqlParameter("@pActiveUser", GeneralTools.GetUserLogged()));
+
 
                     var rowsAffected = command.ExecuteNonQuery();
 
