@@ -42,8 +42,9 @@ namespace collegium.Students
             txtBox_addressLine1.Text = student.AddressLine1;
             txtBox_addressLine2.Text = student.AddressLine2;
             txtBox_city.Text = student.City;
-            cmbCounty.Text = student.Country;
-            radButton_postgrade.Checked = student.Level.Length > 0 ? true : false;
+            cmbCounty.Text = student.County;
+            radButton_postgrade.Checked = student.Level == "Postgrad";
+            radButton_undergrade.Checked = student.Level == "Undergrad";
             cmbCourse.Text = student.Course;
             txtBox_studentNumber.Text = Convert.ToString(student.StudentNumber);
         }
@@ -59,6 +60,7 @@ namespace collegium.Students
             txtBox_city.Text = String.Empty;
             cmbCounty.Text = String.Empty;
             radButton_postgrade.Checked =  false;
+            radButton_undergrade.Checked = false;
             cmbCourse.Text = String.Empty;
             txtBox_studentNumber.Text = Convert.ToString(String.Empty);
         }

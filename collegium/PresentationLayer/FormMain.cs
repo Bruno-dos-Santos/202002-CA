@@ -15,20 +15,27 @@ using DataAccessLayer.Repository;
 
 namespace collegium
 {
-    public partial class frmMain : Form
+    public partial class FormMain : Form
     {
         public List<Student> Students { get; set; }
-        public frmMain()
-        {
-            InitializeComponent();
 
-            var student = new StudentRepository();
+        private StudentRepository student = new StudentRepository();
+        public void refreshStudentGrid()
+        {
             Students = student.GetAll().ToList();
-            
+
             var source = new BindingSource();
             source.DataSource = Students;
             dataGridView1.DataSource = source;
         }
+
+        public FormMain()
+        {
+            InitializeComponent();
+            refreshStudentGrid();
+        }
+
+
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -71,7 +78,7 @@ namespace collegium
         private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             setTsFrmName("frmHistoryLog");
-            frmHistoryLog obj = new frmHistoryLog();
+            FormHistoryLog obj = new FormHistoryLog();
             obj.ShowDialog();
             setTsFrmName();
         }
@@ -79,15 +86,19 @@ namespace collegium
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var newStudentForm = new FormNewStudent();
-
-            newStudentForm.Show();
+            setTsFrmName("FormNewStudent");
+            newStudentForm.ShowDialog();
+            setTsFrmName();
+            refreshStudentGrid();
         }
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var updateStudentForm = new FormUpdateStudent();
-
-            updateStudentForm.Show();
+            setTsFrmName("FormNewStudent");
+            updateStudentForm.ShowDialog();
+            setTsFrmName();
+            refreshStudentGrid();
         }
 
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)

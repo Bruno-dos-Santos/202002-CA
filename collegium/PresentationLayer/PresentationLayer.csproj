@@ -73,17 +73,17 @@
     <Compile Include="Students\FormNewStudent.Designer.cs">
       <DependentUpon>FormNewStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHistoryLog.cs">
+    <Compile Include="FormHistoryLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHistoryLog.Designer.cs">
-      <DependentUpon>frmHistoryLog.cs</DependentUpon>
+    <Compile Include="FormHistoryLog.Designer.cs">
+      <DependentUpon>FormHistoryLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="mydbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,11 +110,11 @@
     <Compile Include="Users\FormNewUser.Designer.cs">
       <DependentUpon>FormNewUser.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmHistoryLog.resx">
-      <DependentUpon>frmHistoryLog.cs</DependentUpon>
+    <EmbeddedResource Include="FormHistoryLog.resx">
+      <DependentUpon>FormHistoryLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

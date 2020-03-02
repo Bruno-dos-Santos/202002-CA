@@ -13,10 +13,10 @@ using DataAccessLayer.Repository;
 
 namespace collegium
 {
-    public partial class frmHistoryLog : Form
+    public partial class FormHistoryLog : Form
     {
         LogRepository logRepository = new LogRepository();
-        public frmHistoryLog()
+        public FormHistoryLog()
         {
             InitializeComponent();
 
