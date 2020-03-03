@@ -47,18 +47,16 @@
             this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exportToXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsFrmName = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridStudent = new System.Windows.Forms.DataGridView();
             this.mydbDataSet1 = new collegium.mydbDataSet();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,12 +67,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.studentToolStripMenuItem,
-            this.utilitiesToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.utilitiesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(12, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1664, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1664, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -94,23 +91,24 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(356, 6);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(224, 44);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.logoutToolStripMenuItem.Text = "Logo&ut";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(356, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 44);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -123,7 +121,7 @@
             this.toolStripMenuItem3,
             this.viewDatabaseHistoryToolStripMenuItem});
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(118, 38);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(118, 36);
             this.studentToolStripMenuItem.Text = "&Student";
             // 
             // newStudentToolStripMenuItem
@@ -166,7 +164,7 @@
             this.toolStripSeparator1,
             this.exportToXMLToolStripMenuItem});
             this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(114, 38);
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
             this.utilitiesToolStripMenuItem.Text = "&Utilities";
             // 
             // usersToolStripMenuItem
@@ -202,21 +200,6 @@
             this.exportToXMLToolStripMenuItem.Name = "exportToXMLToolStripMenuItem";
             this.exportToXMLToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.exportToXMLToolStripMenuItem.Text = "Export to XML";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(85, 38);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(254, 44);
-            this.aboutToolStripMenuItem.Text = "&About";
             // 
             // statusStrip1
             // 
@@ -256,22 +239,22 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dataGridView1
+            // dataGridStudent
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1664, 846);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridStudent.AllowUserToAddRows = false;
+            this.dataGridStudent.AllowUserToDeleteRows = false;
+            this.dataGridStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridStudent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridStudent.Location = new System.Drawing.Point(0, 40);
+            this.dataGridStudent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridStudent.MultiSelect = false;
+            this.dataGridStudent.Name = "dataGridStudent";
+            this.dataGridStudent.ReadOnly = true;
+            this.dataGridStudent.RowHeadersWidth = 62;
+            this.dataGridStudent.RowTemplate.Height = 28;
+            this.dataGridStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridStudent.Size = new System.Drawing.Size(1664, 848);
+            this.dataGridStudent.TabIndex = 2;
             // 
             // mydbDataSet1
             // 
@@ -283,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1664, 930);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridStudent);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -296,7 +279,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -308,8 +291,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsUserName;
         private System.Windows.Forms.ToolStripStatusLabel tsFrmName;
@@ -326,7 +307,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem viewDatabaseHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridStudent;
         private mydbDataSet mydbDataSet1;
         private System.Windows.Forms.ToolStripMenuItem newUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;

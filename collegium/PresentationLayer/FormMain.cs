@@ -27,7 +27,7 @@ namespace collegium
 
             var source = new BindingSource();
             source.DataSource = Students;
-            dataGridView1.DataSource = source;
+            dataGridStudent.DataSource = source;
         }
 
         public FormMain()
@@ -124,6 +124,19 @@ namespace collegium
             var deleteForm = new FormDeleteUser();
 
             deleteForm.Show();
+        }
+        private void setLoginLogoutState(bool logged = true)
+        {
+            studentToolStripMenuItem.Visible = logged;
+            utilitiesToolStripMenuItem.Visible = logged;
+            dataGridStudent.Visible = logged;
+            logoutToolStripMenuItem.Text = logged ? "Logout" : "Login";
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setLoginLogoutState(logoutToolStripMenuItem.Text == "Login");
+
         }
     }
 }
