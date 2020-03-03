@@ -384,26 +384,32 @@ BEGIN
     SET NOCOUNT ON
 
     DECLARE @userID INT
+	DECLARE @EventText VARCHAR(30)
 
     IF EXISTS (SELECT TOP 1 UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName)
     BEGIN
         SET @userID=(SELECT UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND PasswordHash=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))))
 
        IF(@userID IS NULL)
-        --'Incorrect password'
+	   BEGIN
+          SET @EventText = 'Incorrect password'
           SET @responseMessage=2
-       ELSE 
-            --'User successfully logged in'
+	   END
+       ELSE
+	   BEGIN 
+           SET @EventText = 'User successfully logged in'
            SET @responseMessage=0
+       END
     END
     ELSE
-        --Invalid login
+	BEGIN
+       SET @EventText = 'Invalid login'
        SET @responseMessage=1
-	
+	END
 	
     EXEC dbo.uspAddLog
 		  @pLoginName  = @pLoginName,  
-          @pEvent      = @responseMessage, 
+          @pEvent      = @EventText, 
           @pType       = 'Info',
           @pOperation  = 'Login',
           @pTable      = 'Users';

@@ -175,7 +175,7 @@
             this.newUserToolStripMenuItem,
             this.deleteUserToolStripMenuItem});
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.usersToolStripMenuItem.Text = "User&s";
             // 
             // newUserToolStripMenuItem
@@ -195,12 +195,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(296, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(356, 6);
             // 
             // exportToXMLToolStripMenuItem
             // 
             this.exportToXMLToolStripMenuItem.Name = "exportToXMLToolStripMenuItem";
-            this.exportToXMLToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
+            this.exportToXMLToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.exportToXMLToolStripMenuItem.Text = "Export to XML";
             // 
             // helpToolStripMenuItem
@@ -287,7 +287,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormMain";
             this.Text = "Student menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

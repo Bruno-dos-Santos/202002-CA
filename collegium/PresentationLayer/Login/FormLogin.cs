@@ -43,5 +43,10 @@ namespace collegium.Login
                 GeneralTools.WarningBox("Incorrect password.");
             }
         }
+
+        private void txtbox_password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

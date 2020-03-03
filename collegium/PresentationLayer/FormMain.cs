@@ -74,14 +74,14 @@ namespace collegium
         {
             tsUserName.Text = GeneralTools.GetUserLogged();
         }
-        private void setTsFrmName(string frmName = "frmMain")
+        private void setTsFrmName(string frmName = "FormMain")
         {
             tsFrmName.Text = frmName;
         }
 
         private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTsFrmName("frmHistoryLog");
+            setTsFrmName("FormHistoryLog");
             FormHistoryLog obj = new FormHistoryLog();
             obj.ShowDialog();
             setTsFrmName();
