@@ -3,7 +3,7 @@ using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using BusinessLogicLayer.Operations;
-
+using DataAccessLayer.Util;
 
 namespace DataAccessLayer.Repository
 {
@@ -76,6 +76,27 @@ namespace DataAccessLayer.Repository
 
                     command.Parameters.Add(new SqlParameter("@pUserID", id));
                     command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public LoginEnum Login(string login, string password)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("dbo.uspLogin", connection))
+                {
+                    command.Connection = connection;
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@pLoginName", login));
+                    command.Parameters.Add(new SqlParameter("@pPassword", password));
+                    command.Parameters.Add("@responseMessage", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;
+
+                    command.ExecuteNonQuery();
+                    
+                    return (LoginEnum)command.Parameters["@responseMessage"].Value;
                 }
             }
         }

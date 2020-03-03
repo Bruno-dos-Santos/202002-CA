@@ -390,12 +390,15 @@ BEGIN
         SET @userID=(SELECT UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND PasswordHash=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))))
 
        IF(@userID IS NULL)
-          SET @responseMessage='Incorrect password'
+        --'Incorrect password'
+          SET @responseMessage=2
        ELSE 
-           SET @responseMessage='User successfully logged in'
+            --'User successfully logged in'
+           SET @responseMessage=0
     END
     ELSE
-       SET @responseMessage='Invalid login'
+        --Invalid login
+       SET @responseMessage=1
 	
 	
     EXEC dbo.uspAddLog
@@ -404,6 +407,8 @@ BEGIN
           @pType       = 'Info',
           @pOperation  = 'Login',
           @pTable      = 'Users';
+
+    return @responseMessage
  
 END
 

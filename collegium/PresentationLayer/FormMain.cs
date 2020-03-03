@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogicLayer.Operations;
+using collegium.Login;
 using collegium.Students;
 using collegium.Users;
 using DataAccessLayer.Entities;
@@ -33,6 +34,10 @@ namespace collegium
         {
             InitializeComponent();
             refreshStudentGrid();
+
+            var formLogin = new FormLogin();
+
+            formLogin.ShowDialog();
         }
 
 
@@ -62,7 +67,6 @@ namespace collegium
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            GeneralTools.SetUserLogged("bruno");
             setTsUserName();
             setTsFrmName();
         }
