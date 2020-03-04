@@ -49,5 +49,8 @@
     <Compile Include="Operations\GeneralTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Documentation\Diagrams\ClassDiagrams\BusinessLogicLayer.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

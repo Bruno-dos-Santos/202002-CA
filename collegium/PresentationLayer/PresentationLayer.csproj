@@ -149,6 +149,7 @@
     <EmbeddedResource Include="Users\FormNewUser.resx">
       <DependentUpon>FormNewUser.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\Documentation\Diagrams\ClassDiagrams\PresentationLayer.cd" />
     <None Include="mydbDataSet.xsc">
       <DependentUpon>mydbDataSet.xsd</DependentUpon>
     </None>

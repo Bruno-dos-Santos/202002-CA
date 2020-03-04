@@ -55,5 +55,8 @@
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Documentation\Diagrams\ClassDiagrams\DataAccessLayer.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

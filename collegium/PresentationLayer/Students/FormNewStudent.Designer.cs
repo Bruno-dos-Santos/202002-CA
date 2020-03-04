@@ -211,7 +211,6 @@
             this.txtBox_addressLine2.TabIndex = 5;
             this.txtBox_addressLine2.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txtBox_addressLine2.Leave += new System.EventHandler(this.txtBox_Leave);
-            this.txtBox_addressLine2.Validating += new System.ComponentModel.CancelEventHandler(this.txtBox_notEmpty);
             // 
             // txtBox_addressLine1
             // 
