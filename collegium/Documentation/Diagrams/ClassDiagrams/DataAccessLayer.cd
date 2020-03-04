@@ -8,21 +8,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.RepositoryBase">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\RepositoryBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.StudentRepository">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="5" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAEAAAAIAgAAAAAAAAA=</HashCode>
       <FileName>Repository\StudentRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.UserRepository">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="2.75" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAEAAAAIAAAQAAAAAAA=</HashCode>
       <FileName>Repository\UserRepository.cs</FileName>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="collegium.FormHistoryLog">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="2.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -11,7 +11,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.FormMain">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="3.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -21,7 +21,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.FormNewStudent">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.Login.FormLogin">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -41,7 +41,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.Students.FormDeleteStudent">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -51,7 +51,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.Students.FormUpdateStudent">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="12" Y="0.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -61,7 +61,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.Users.FormDeleteUser">
-    <Position X="5.75" Y="4" Width="1.5" />
+    <Position X="9.5" Y="4" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -71,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="collegium.Users.FormNewUser">
-    <Position X="4" Y="3.5" Width="1.5" />
+    <Position X="6.75" Y="3.5" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
