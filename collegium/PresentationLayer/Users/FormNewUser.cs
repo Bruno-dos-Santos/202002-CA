@@ -40,5 +40,21 @@ namespace collegium.Users
 
             return User.CreateUser(loginName, password, firstName, lastName);
         }
+
+        private void txtBox_Enter(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Enter(sender, e);
+        }
+        private void txtBox_Leave(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Leave(sender, e);
+        }
+
+        private void txtBox_notEmpty(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            e.Cancel = ValidationTool.RequiredFieldIsBlank(erProvider, txt);
+        }
+
     }
 }

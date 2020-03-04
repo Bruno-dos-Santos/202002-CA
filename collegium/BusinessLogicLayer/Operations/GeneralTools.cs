@@ -54,6 +54,58 @@ namespace BusinessLogicLayer.Operations
             }
         }
     }
+    public static class ValidationTool
+    {
+        public static string CamelCaseToWords(string input)
+        {
+            string result = "";
+            foreach (char ch in input.ToCharArray())
+            {
+                if (char.IsUpper(ch)) result += " ";
+                result += ch;
+            }
+
+            return result.Substring(result.IndexOf(" ") + 1);
+        }
+        public static bool RequiredFieldIsBlank(ErrorProvider err, TextBox txt)
+        {
+
+            if (txt.Text.Length > 0)
+            {
+                // Clear the error.
+                err.SetError(txt, "");
+                return false;
+            }
+            else
+            {
+                // Set the error.
+                err.SetError(txt, CamelCaseToWords(txt.Name) +
+                    " must not be blank.");
+                return true;
+            }
+        }
+        public static bool EmailAddressIsWrong(ErrorProvider err, TextBox txt)
+        {
+
+            if (txt.Text.Trim() == string.Empty)
+            {
+                err.SetError(txt, txt.Name + " must not be blank.");
+                return true;
+            }
+            else if(GeneralTools.IsValidEmailAddress(txt.Text)) 
+            {
+                // Clear the error.
+                err.SetError(txt, "");
+                return false;
+            }
+            else
+            {
+                // Set the error.
+                err.SetError(txt, txt.Text + " not a valid email address!");
+                return true;
+            }
+        }
+    }
     public static class GeneralTools
     {
 
@@ -67,7 +119,7 @@ namespace BusinessLogicLayer.Operations
             MessageBox.Show(message, caption, MessageBoxButtons.OK);
         }
 
-        public static bool IsValid(string emailaddress)
+        public static bool IsValidEmailAddress(string emailaddress)
         {
             try
             {

@@ -136,5 +136,10 @@ namespace collegium
             tsUserName.Visible = logged;
         }
 
+        private void dataGridStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            openForm(new FormUpdateStudent(dataGridStudent.CurrentRow.Cells[dataGridStudent.Columns["StudentNumber"].Index].FormattedValue.ToString()));
+            refreshStudentGrid();
+        }
     }
 }

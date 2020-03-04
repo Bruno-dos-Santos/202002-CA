@@ -3,6 +3,7 @@ using DataAccessLayer.Entities;
 using DataAccessLayer.Repository;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,14 +13,19 @@ namespace collegium.Students
     {
         public List<Student> Students { get; set; } = new List<Student>();
 
-        public FormUpdateStudent()
+        public FormUpdateStudent(string StudentNumber = "")
         {
             InitializeComponent();
 
             var studentRepository = new StudentRepository();
 
             Students = studentRepository.GetAll().ToList();
+            if (StudentNumber.Trim() != "")
+            {
+                studentNumber.Text = StudentNumber;
+            }
         }
+
 
         private void studentNumber_TextChanged(object sender, EventArgs e)
         {
@@ -95,10 +101,6 @@ namespace collegium.Students
             return Student.CreateStudent(firstName, surname, email, phone, addressline1, addressline2, city, county, country, level, course, studentNumber);
         }
 
-        private void FormUpdateStudent_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtBox_Enter(object sender, EventArgs e)
         {
@@ -107,6 +109,20 @@ namespace collegium.Students
         private void txtBox_Leave(object sender, EventArgs e)
         {
             GeneralTools.txtBox_Leave(sender, e);
+        }
+        private void txtBox_notEmpty(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            e.Cancel = ValidationTool.RequiredFieldIsBlank(erProvider, txt);
+        }
+        private void validEmail(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            e.Cancel = ValidationTool.EmailAddressIsWrong(erProvider, txt);
+        }
+        private void FormUpdateStudent_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

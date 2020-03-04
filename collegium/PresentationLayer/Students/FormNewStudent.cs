@@ -63,5 +63,16 @@ namespace collegium
         {
             GeneralTools.txtBox_Leave(sender, e);
         }
+        private void txtBox_notEmpty(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            e.Cancel = ValidationTool.RequiredFieldIsBlank(erProvider, txt);
+        }
+
+        private void validEmail(object sender, CancelEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            e.Cancel = ValidationTool.EmailAddressIsWrong(erProvider, txt);
+        }
     }
 }
