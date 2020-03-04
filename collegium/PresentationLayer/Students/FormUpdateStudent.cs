@@ -73,6 +73,7 @@ namespace collegium.Students
             repository.Update(student);
 
             GeneralTools.WarningBox("Student updated");
+
             Close();
         }
 
@@ -87,7 +88,7 @@ namespace collegium.Students
             var city = txtBox_city.Text;
             var county = cmbCounty.Text;
             var country = "Ireland";
-            var level = radButton_postgrade.Text;
+            var level = radButton_postgrade.Checked ? radButton_postgrade.Text : radButton_undergrade.Text;
             var course = cmbCourse.Text;
             var studentNumber = Convert.ToInt32(txtBox_studentNumber.Text);
 

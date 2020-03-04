@@ -36,7 +36,7 @@ namespace DataAccessLayer.Repository
                     command.Parameters.Add(new SqlParameter("@pLevel", student.Level));
                     command.Parameters.Add(new SqlParameter("@pCourse", student.Course));
                     command.Parameters.Add(new SqlParameter("@pStudentNumber", student.StudentNumber));
-                    command.Parameters.Add(new SqlParameter("@pActiveUser", GeneralTools.GetUserLogged()));
+                    command.Parameters.Add(new SqlParameter("@pActiveUser",  LoggedInDetails.GetUserLogged()));
 
                     var rowsAffected = command.ExecuteNonQuery();
 
@@ -69,7 +69,7 @@ namespace DataAccessLayer.Repository
                     command.Parameters.Add(new SqlParameter("@pLevel", student.Level));
                     command.Parameters.Add(new SqlParameter("@pCourse", student.Course));
                     command.Parameters.Add(new SqlParameter("@pStudentNumber", student.StudentNumber));
-                    command.Parameters.Add(new SqlParameter("@pActiveUser", GeneralTools.GetUserLogged()));
+                    command.Parameters.Add(new SqlParameter("@pActiveUser", LoggedInDetails.GetUserLogged()));
 
 
                     var rowsAffected = command.ExecuteNonQuery();

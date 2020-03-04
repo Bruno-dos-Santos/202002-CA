@@ -2,22 +2,19 @@
 using DataAccessLayer.Repository;
 using DataAccessLayer.Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace collegium.Login
 {
     public partial class FormLogin : Form
     {
+        public Form TheParent { get; set; }
+
         public FormLogin()
         {
             InitializeComponent();
+
+            ControlBox = false;
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -28,7 +25,8 @@ namespace collegium.Login
 
             if (response == LoginEnum.Successful)
             {
-                GeneralTools.SetUserLogged(txtBox_login.Text);
+                LoggedInDetails.SetUserLogged(txtBox_login.Text);
+                LoggedInDetails.SetLoggedInState(true);                
                 Close();
                 return;
             }
@@ -47,6 +45,25 @@ namespace collegium.Login
         private void txtbox_password_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtbox_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_Login_Click(e, e);
+            }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            LoggedInDetails.SetLoggedInState();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (GeneralTools.ConfirmationBox("this action will close the application, confirm?"))
+                Application.Exit();
         }
     }
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using BusinessLogicLayer.Operations;
 using collegium.Login;
 using collegium.Students;
@@ -34,45 +36,37 @@ namespace collegium
         {
             InitializeComponent();
             refreshStudentGrid();
-
-            var formLogin = new FormLogin();
-
-            formLogin.ShowDialog();
         }
 
-
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        private void openForm(Form formName)
         {
-
+            setTsFrmName(formName.Name);
+            formName.ShowDialog();
+            setTsFrmName();
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             tsTime.Text  = DateTime.Now.ToString();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GeneralTools.ConfirmationBox("confirm?")) 
-            {
+            if (GeneralTools.ConfirmationBox("this action will close the application, confirm?")) 
                 Application.Exit();
-            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            setTsUserName();
             setTsFrmName();
+            setLoginLogoutState(LoggedInDetails.GetLoggedInState());
         }
         private void setTsUserName()
         {
-            tsUserName.Text = GeneralTools.GetUserLogged();
+            tsUserName.Text = LoggedInDetails.GetUserLogged();
         }
         private void setTsFrmName(string frmName = "FormMain")
         {
@@ -81,62 +75,66 @@ namespace collegium
 
         private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setTsFrmName("FormHistoryLog");
-            FormHistoryLog obj = new FormHistoryLog();
-            obj.ShowDialog();
-            setTsFrmName();
+            openForm(new FormHistoryLog());
         }
 
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var newStudentForm = new FormNewStudent();
-            setTsFrmName("FormNewStudent");
-            newStudentForm.ShowDialog();
-            setTsFrmName();
+            openForm(new FormNewStudent());
             refreshStudentGrid();
         }
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var updateStudentForm = new FormUpdateStudent();
-            setTsFrmName("FormNewStudent");
-            updateStudentForm.ShowDialog();
-            setTsFrmName();
+            openForm(new FormUpdateStudent());
             refreshStudentGrid();
         }
 
+
+
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var deleteStudentForm = new FormDeleteStudent();
-
-            deleteStudentForm.Show();
+            openForm(new FormDeleteStudent());
         }
 
         private void newUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var userNewForm = new FormNewUser();
-
-            userNewForm.Show();
+            openForm(new FormNewUser());
         }
 
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var deleteForm = new FormDeleteUser();
-
-            deleteForm.Show();
-        }
-        private void setLoginLogoutState(bool logged = true)
-        {
-            studentToolStripMenuItem.Visible = logged;
-            utilitiesToolStripMenuItem.Visible = logged;
-            dataGridStudent.Visible = logged;
-            logoutToolStripMenuItem.Text = logged ? "Logout" : "Login";
+            openForm(new FormDeleteUser());
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setLoginLogoutState(logoutToolStripMenuItem.Text == "Login");
+            if (!LoggedInDetails.GetLoggedInState())
+            {
+                // login
+                openForm(new FormLogin());
+            } else
+            {
+                //logout
+                LoggedInDetails.SetLoggedInState(false);
+            }
 
+            setLoginLogoutState(LoggedInDetails.GetLoggedInState());
+            setTsUserName();
         }
+
+        private void exportToXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XmlTools.ExportXML(Students);
+        }
+        public void setLoginLogoutState(bool logged = true)
+        {
+            logoutToolStripMenuItem.Text = logged ? "Logout" : "Login";
+            studentToolStripMenuItem.Visible = logged;
+            utilitiesToolStripMenuItem.Visible = logged;
+            dataGridStudent.Visible = logged;
+            tsUserName.Visible = logged;
+        }
+
     }
 }
