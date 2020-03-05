@@ -75,6 +75,7 @@ namespace DataAccessLayer.Repository
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.Add(new SqlParameter("@pUserID", id));
+                    command.Parameters.Add(new SqlParameter("@pLoginName", LoggedInDetails.GetUserLogged()));
                     command.ExecuteNonQuery();
                 }
             }

@@ -1,0 +1,6 @@
+title Update student
+
+User->Update_Student_Click: Fill the change s/he wants to do about the student and click on Update.
+MapTxtBoxesToStudent->Repository:Save this object on database
+Update_Student_Click->MapTxtBoxesToStudent:Then text boxes are mapped to an object\n
+Repository-->User:Throws an error

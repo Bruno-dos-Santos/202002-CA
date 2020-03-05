@@ -1,0 +1,8 @@
+title Insert Student
+
+Student->Save_Student_Click: Fill student insert screen and clicks on Save.
+MapTxtBoxesToStudent->Repository:Save this object on database
+Save_Student_Click->MapTxtBoxesToStudent:Then text boxes are mapped to an object\n
+Repository->Database:Object is inserted by a procedure
+Database->Repository:Successful or fail
+Repository-->Student:Throws an error

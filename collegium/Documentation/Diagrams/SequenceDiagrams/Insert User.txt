@@ -1,0 +1,8 @@
+title Insert User
+
+User->Save_User_Click: Fill user insert screen and clicks on Save.
+MapTxtBoxesToUser->Repository:Save this object on database
+Save_User_Click->MapTxtBoxesToUser:Then text boxes are mapped to an object\n
+Repository->Database:Object is inserted by a procedure
+Database->Repository:Successful or fail
+Repository-->User:Throws an error

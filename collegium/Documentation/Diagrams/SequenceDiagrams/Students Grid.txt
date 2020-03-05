@@ -1,0 +1,9 @@
+title Students grid
+
+User->FormMain: After login, forms is rendered.
+FormMain->Repository:FormMain asks repository for all students
+Repository->Database:Executes a procedure to get all students
+Repository<--Database:Returns an sql server response
+Repository->FormMain:Return a list of students
+FormMain->Datagrid:FormMain fills datagrid
+Datagrid-->User:Student's list

@@ -37,7 +37,7 @@ namespace DataAccessLayer.Repository
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
-            string query = "select * from Logs where 1=1 ";
+            string query = "select * from Logs order by  eventdatetime desc";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();

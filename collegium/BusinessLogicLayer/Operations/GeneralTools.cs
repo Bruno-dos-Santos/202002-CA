@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -42,6 +43,8 @@ namespace BusinessLogicLayer.Operations
         public static void ExportXML(List<Student> students)
         {
             var openFileDialog = new SaveFileDialog();
+            openFileDialog.DefaultExt = ".xml";
+            openFileDialog.Filter = "XML File | *.xml";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var path = openFileDialog.FileName;
@@ -51,6 +54,7 @@ namespace BusinessLogicLayer.Operations
 
                 serializer.Serialize(writer, students);
                 writer.Close();
+                GeneralTools.WarningBox("XML file created", "info");
             }
         }
     }
@@ -67,6 +71,7 @@ namespace BusinessLogicLayer.Operations
 
             return result.Substring(result.IndexOf(" ") + 1);
         }
+
         public static bool RequiredFieldIsBlank(ErrorProvider err, TextBox txt)
         {
 
@@ -79,11 +84,12 @@ namespace BusinessLogicLayer.Operations
             else
             {
                 // Set the error.
-                err.SetError(txt, CamelCaseToWords(txt.Name) +
+                err.SetError(txt, txt.Name +
                     " must not be blank.");
                 return true;
             }
         }
+
         public static bool EmailAddressIsWrong(ErrorProvider err, TextBox txt)
         {
 
@@ -121,15 +127,7 @@ namespace BusinessLogicLayer.Operations
 
         public static bool IsValidEmailAddress(string emailaddress)
         {
-            try
-            {
-                MailAddress m = new MailAddress(emailaddress);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
+            return Regex.IsMatch(emailaddress, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
 
         public static void txtBox_Enter(object sender, EventArgs e)

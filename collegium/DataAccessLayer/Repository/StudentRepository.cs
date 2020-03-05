@@ -93,6 +93,8 @@ namespace DataAccessLayer.Repository
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.Add(new SqlParameter("@pStudentNumber", studentNumber));
+                    command.Parameters.Add(new SqlParameter("@pActiveUser", LoggedInDetails.GetUserLogged()));
+
                     command.ExecuteNonQuery();
                 }
             }

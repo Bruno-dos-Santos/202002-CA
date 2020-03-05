@@ -23,19 +23,20 @@ namespace collegium
         public List<Student> Students { get; set; }
 
         private StudentRepository student = new StudentRepository();
-        public void refreshStudentGrid()
+
+        public FormMain()
+        {
+            InitializeComponent();
+            RefreshStudentGrid();
+        }
+
+        public void RefreshStudentGrid()
         {
             Students = student.GetAll().ToList();
 
             var source = new BindingSource();
             source.DataSource = Students;
             dataGridStudent.DataSource = source;
-        }
-
-        public FormMain()
-        {
-            InitializeComponent();
-            refreshStudentGrid();
         }
 
         private void openForm(Form formName)
@@ -81,13 +82,13 @@ namespace collegium
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(new FormNewStudent());
-            refreshStudentGrid();
+            RefreshStudentGrid();
         }
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(new FormUpdateStudent());
-            refreshStudentGrid();
+            RefreshStudentGrid();
         }
 
 
@@ -139,7 +140,22 @@ namespace collegium
         private void dataGridStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             openForm(new FormUpdateStudent(dataGridStudent.CurrentRow.Cells[dataGridStudent.Columns["StudentNumber"].Index].FormattedValue.ToString()));
-            refreshStudentGrid();
+            RefreshStudentGrid();
+        }
+
+        private void dataGridStudent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if(GeneralTools.ConfirmationBox("Are you sure you want to delete this student?") == true)
+                {
+                    var studentRepository = new StudentRepository();
+
+                    studentRepository.Delete(Convert.ToInt64(dataGridStudent.CurrentRow.Cells[dataGridStudent.Columns["StudentNumber"].Index].FormattedValue.ToString()));
+
+                    RefreshStudentGrid();
+                }
+            }
         }
     }
 }

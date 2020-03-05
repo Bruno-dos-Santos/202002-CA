@@ -30,7 +30,9 @@ namespace collegium.Students
         private void studentNumber_TextChanged(object sender, EventArgs e)
         {
             var txtBox_id = sender as TextBox;
-            var id = Convert.ToInt32(txtBox_id.Text);
+            int id;
+
+            Int32.TryParse(txtBox_id.Text, out id);
 
             var student = Students
                 .Find(x => x.StudentNumber == id);

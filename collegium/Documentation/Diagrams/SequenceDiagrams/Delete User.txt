@@ -1,0 +1,7 @@
+title Delete User
+
+User->Delete_User_Click: Fill user id and clicks on Delete.
+Delete_User_Click->Repository:Invokes repository and tells it which user id it must be marked as delete.
+Repository->Database:Repository executes a procedure passing its parameters
+Database-->Repository:Successful or fails
+Repository-->User:Throws an error

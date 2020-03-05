@@ -257,7 +257,7 @@ go
 
 CREATE PROCEDURE dbo.uspDeleteStudent
     @pStudentNumber int,
-	@pActiveUser VARCHAR(20) = NULL
+	@pActiveUser VARCHAR(20)
 
 AS
 BEGIN
@@ -386,9 +386,9 @@ BEGIN
     DECLARE @userID INT
 	DECLARE @EventText VARCHAR(30)
 
-    IF EXISTS (SELECT TOP 1 UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName)
+    IF EXISTS (SELECT TOP 1 UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND isDeleted = 0)
     BEGIN
-        SET @userID=(SELECT UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND PasswordHash=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))))
+        SET @userID=(SELECT UserID FROM [dbo].[Users] WHERE LoginName=@pLoginName AND PasswordHash=HASHBYTES('SHA2_512', @pPassword+CAST(Salt AS NVARCHAR(36))) AND isDeleted = 0)
 
        IF(@userID IS NULL)
 	   BEGIN
