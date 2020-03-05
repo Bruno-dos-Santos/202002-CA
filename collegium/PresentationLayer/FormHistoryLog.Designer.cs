@@ -43,7 +43,6 @@
             this.dgHistoryLog.AllowUserToOrderColumns = true;
             this.dgHistoryLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgHistoryLog.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgHistoryLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgHistoryLog.Location = new System.Drawing.Point(0, 131);
             this.dgHistoryLog.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgHistoryLog.Name = "dgHistoryLog";
@@ -51,7 +50,7 @@
             this.dgHistoryLog.RowHeadersWidth = 62;
             this.dgHistoryLog.RowTemplate.Height = 28;
             this.dgHistoryLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHistoryLog.Size = new System.Drawing.Size(1917, 866);
+            this.dgHistoryLog.Size = new System.Drawing.Size(1698, 866);
             this.dgHistoryLog.TabIndex = 0;
             // 
             // pnlFilter
@@ -62,12 +61,13 @@
             this.pnlFilter.Location = new System.Drawing.Point(0, 0);
             this.pnlFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(1917, 131);
+            this.pnlFilter.Size = new System.Drawing.Size(1701, 131);
             this.pnlFilter.TabIndex = 1;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1002, 58);
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Location = new System.Drawing.Point(958, 48);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(132, 38);
@@ -78,7 +78,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(432, 58);
+            this.btnRefresh.Location = new System.Drawing.Point(570, 48);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(132, 38);
@@ -90,12 +90,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1917, 997);
+            this.AutoSize = true;
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(1701, 997);
             this.Controls.Add(this.dgHistoryLog);
             this.Controls.Add(this.pnlFilter);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormHistoryLog";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Database History";
             ((System.ComponentModel.ISupportInitialize)(this.dgHistoryLog)).EndInit();
             this.pnlFilter.ResumeLayout(false);

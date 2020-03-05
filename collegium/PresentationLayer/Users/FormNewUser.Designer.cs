@@ -39,9 +39,7 @@
             this.txt_lastName = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.erProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,14 +142,11 @@
             // 
             this.erProvider.ContainerControl = this;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // FormNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(976, 446);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.txt_lastName);
@@ -164,10 +159,10 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNewUser";
             this.Text = "New User";
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +180,5 @@
         private System.Windows.Forms.TextBox txt_lastName;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.ErrorProvider erProvider;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

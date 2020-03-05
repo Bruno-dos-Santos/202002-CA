@@ -42,7 +42,6 @@
             this.txtBox_firstName = new System.Windows.Forms.TextBox();
             this.txtBox_surname = new System.Windows.Forms.TextBox();
             this.txtBox_email = new System.Windows.Forms.TextBox();
-            this.txtBox_phone = new System.Windows.Forms.TextBox();
             this.txtBox_addressLine2 = new System.Windows.Forms.TextBox();
             this.txtBox_addressLine1 = new System.Windows.Forms.TextBox();
             this.txtBox_studentNumber = new System.Windows.Forms.TextBox();
@@ -54,6 +53,7 @@
             this.cmbCounty = new System.Windows.Forms.ComboBox();
             this.cmbCourse = new System.Windows.Forms.ComboBox();
             this.erProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtBox_phone = new System.Windows.Forms.MaskedTextBox();
             this.grBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erProvider)).BeginInit();
             this.SuspendLayout();
@@ -190,17 +190,6 @@
             this.txtBox_email.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txtBox_email.Leave += new System.EventHandler(this.txtBox_Leave);
             this.txtBox_email.Validating += new System.ComponentModel.CancelEventHandler(this.validEmail);
-            // 
-            // txtBox_phone
-            // 
-            this.txtBox_phone.Location = new System.Drawing.Point(291, 234);
-            this.txtBox_phone.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtBox_phone.Name = "txtBox_phone";
-            this.txtBox_phone.Size = new System.Drawing.Size(816, 31);
-            this.txtBox_phone.TabIndex = 3;
-            this.txtBox_phone.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.txtBox_phone.Leave += new System.EventHandler(this.txtBox_Leave);
-            this.txtBox_phone.Validating += new System.ComponentModel.CancelEventHandler(this.txtBox_notEmpty);
             // 
             // txtBox_addressLine2
             // 
@@ -363,11 +352,23 @@
             // 
             this.erProvider.ContainerControl = this;
             // 
+            // txtBox_phone
+            // 
+            this.txtBox_phone.Location = new System.Drawing.Point(291, 234);
+            this.txtBox_phone.Mask = "(90) 000-0000";
+            this.txtBox_phone.Name = "txtBox_phone";
+            this.txtBox_phone.Size = new System.Drawing.Size(816, 31);
+            this.txtBox_phone.TabIndex = 3;
+            this.txtBox_phone.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_phone.Leave += new System.EventHandler(this.txtBox_Leave);
+            // 
             // FormNewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1244, 878);
+            this.Controls.Add(this.txtBox_phone);
             this.Controls.Add(this.cmbCourse);
             this.Controls.Add(this.cmbCounty);
             this.Controls.Add(this.grBox);
@@ -376,7 +377,6 @@
             this.Controls.Add(this.txtBox_city);
             this.Controls.Add(this.txtBox_addressLine2);
             this.Controls.Add(this.txtBox_addressLine1);
-            this.Controls.Add(this.txtBox_phone);
             this.Controls.Add(this.txtBox_email);
             this.Controls.Add(this.txtBox_surname);
             this.Controls.Add(this.txtBox_firstName);
@@ -391,6 +391,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_StudentName);
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNewStudent";
             this.Text = "New Student";
             this.Load += new System.EventHandler(this.FormNewStudent_Load);
@@ -418,7 +420,6 @@
         private System.Windows.Forms.TextBox txtBox_firstName;
         private System.Windows.Forms.TextBox txtBox_surname;
         private System.Windows.Forms.TextBox txtBox_email;
-        private System.Windows.Forms.TextBox txtBox_phone;
         private System.Windows.Forms.TextBox txtBox_addressLine2;
         private System.Windows.Forms.TextBox txtBox_addressLine1;
         private System.Windows.Forms.TextBox txtBox_studentNumber;
@@ -430,5 +431,6 @@
         private System.Windows.Forms.ComboBox cmbCounty;
         private System.Windows.Forms.ComboBox cmbCourse;
         private System.Windows.Forms.ErrorProvider erProvider;
+        private System.Windows.Forms.MaskedTextBox txtBox_phone;
     }
 }

@@ -59,25 +59,29 @@
             // txtBox_login
             // 
             this.txtBox_login.Location = new System.Drawing.Point(326, 108);
-            this.txtBox_login.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtBox_login.Margin = new System.Windows.Forms.Padding(6);
             this.txtBox_login.Name = "txtBox_login";
             this.txtBox_login.Size = new System.Drawing.Size(390, 31);
             this.txtBox_login.TabIndex = 2;
+            this.txtBox_login.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.txtBox_login.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // txtbox_password
             // 
             this.txtbox_password.Location = new System.Drawing.Point(326, 231);
-            this.txtbox_password.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtbox_password.Margin = new System.Windows.Forms.Padding(6);
             this.txtbox_password.Name = "txtbox_password";
             this.txtbox_password.PasswordChar = '*';
             this.txtbox_password.Size = new System.Drawing.Size(390, 31);
             this.txtbox_password.TabIndex = 3;
+            this.txtbox_password.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txtbox_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbox_password_KeyDown);
+            this.txtbox_password.Leave += new System.EventHandler(this.txtBox_Leave);
             // 
             // btn_Login
             // 
             this.btn_Login.Location = new System.Drawing.Point(356, 354);
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(6);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(150, 44);
             this.btn_Login.TabIndex = 4;
@@ -87,6 +91,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(566, 354);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 44);
@@ -97,8 +102,10 @@
             // 
             // FormLogin
             // 
+            this.AcceptButton = this.btn_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(910, 496);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btn_Login);
@@ -106,7 +113,7 @@
             this.Controls.Add(this.txtBox_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";

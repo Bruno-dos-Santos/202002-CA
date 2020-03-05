@@ -96,6 +96,7 @@ namespace collegium
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm(new FormDeleteStudent());
+            RefreshStudentGrid();
         }
 
         private void newUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -157,5 +158,6 @@ namespace collegium
                 }
             }
         }
+
     }
 }

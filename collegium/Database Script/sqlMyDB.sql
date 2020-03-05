@@ -116,7 +116,7 @@ CREATE TABLE dbo.Students
     FirstName VARCHAR(20) NOT NULL,
     LastName VARCHAR(20) NOT NULL,
     Email VARCHAR(40) NOT NULL,
-    Phone VARCHAR(10) NOT NULL,
+    Phone VARCHAR(15) NOT NULL,
     AddressLine1 VARCHAR(40) NOT NULL,
     AddressLine2 VARCHAR(40) NULL,
     City VARCHAR(20) NOT NULL,
@@ -137,12 +137,12 @@ CREATE PROCEDURE dbo.uspAddStudent
     @pFirstName VARCHAR(20),
     @pLastName VARCHAR(20),
     @pEmail VARCHAR(40),
-    @pPhone VARCHAR(10),
+    @pPhone VARCHAR(15),
     @pAddressLine1 VARCHAR(40),
     @pAddressLine2 VARCHAR(40),
     @pCity VARCHAR(20),
     @pCounty VARCHAR(20),
-	@pCountry VARCHAR(20),
+    @pCountry VARCHAR(20),
     @pLevel VARCHAR(10),
     @pCourse VARCHAR(20),
     @pStudentNumber INT,
@@ -199,7 +199,7 @@ CREATE PROCEDURE dbo.uspUpdateStudent
     @pFirstName VARCHAR(20),
     @pLastName VARCHAR(20),
     @pEmail VARCHAR(40),
-    @pPhone VARCHAR(10),
+    @pPhone VARCHAR(15),
     @pAddressLine1 VARCHAR(40),
     @pAddressLine2 VARCHAR(40),
     @pCity VARCHAR(20),
@@ -297,16 +297,19 @@ CREATE PROCEDURE dbo.uspUpdateUser
     @pPassword VARCHAR(50), 
     @pFirstName VARCHAR(20) = NULL, 
     @pLastName VARCHAR(20) = NULL,
-	@pActiveUser VARCHAR(20) = NULL
+    @pActiveUser VARCHAR(20) = NULL
 AS
 BEGIN
     SET NOCOUNT ON
 
     BEGIN TRY
 
+	DECLARE @salt UNIQUEIDENTIFIER=NEWID()
+
         UPDATE Users
         SET LoginName = @pLoginName,
-            PasswordHash = HASHBYTES('SHA2_512', @pPassword),
+            PasswordHash = HASHBYTES('SHA2_512', @pPassword+CAST(@salt AS NVARCHAR(36))),
+	        Salt = @salt,
             FirstName = @pFirstName,
             LastName = @pLastName
         WHERE
@@ -316,7 +319,7 @@ BEGIN
         SET @responseMessage='Success';
         
         EXEC dbo.uspAddLog
-		  @pLoginName = @pActiveUser,  
+          @pLoginName = @pActiveUser,  
           @pEvent      = @pLoginName, 
           @pType       = 'Info',
           @pOperation  = 'Update',
@@ -447,7 +450,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pFirstName = N'Joe ',
 		@pLastName = N'Smith',
 		@pEmail = N'joe.smith@gmail.com',
-		@pPhone = N'0899858096',
+		@pPhone = N'(89) 985-8096',
 		@pAddressLine1 = N'Address 1',
 		@pAddressLine2 = N'Address 2',
 		@pCity = N'Dublin',
@@ -462,7 +465,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pFirstName = N'Mary ',
 		@pLastName = N'Jones',
 		@pEmail = N'marry.jones@gmail.com',
-		@pPhone = N'0861234411',		
+		@pPhone = N'(86) 123-4411',		
 		@pAddressLine1 = N'Address 1',
 		@pAddressLine2 = N'Address 2',
 		@pCity = N'Galway',
@@ -477,7 +480,7 @@ EXEC	[dbo].[uspAddStudent]
 		@pFirstName = N'John ',
 		@pLastName = N'Doe',
 		@pEmail = N'john.doe@gmail.com',
-		@pPhone = N'0893212025',
+		@pPhone = N'(89) 321-2025',
 		@pAddressLine1 = N'Address 1',
 		@pAddressLine2 = N'Address 2',
 		@pCity = N'Donegal',

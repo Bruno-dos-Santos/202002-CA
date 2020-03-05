@@ -114,8 +114,6 @@ namespace BusinessLogicLayer.Operations
     }
     public static class GeneralTools
     {
-
-
         public static bool ConfirmationBox(string message, string caption = "Confirmation")
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;
@@ -139,6 +137,9 @@ namespace BusinessLogicLayer.Operations
             else if (sender is ComboBox)
             {
                 (sender as ComboBox).BackColor = Color.Yellow;
+            } else if ( sender is MaskedTextBox)
+            {
+                (sender as MaskedTextBox).BackColor = Color.Yellow;
             }
 
         }
@@ -151,6 +152,10 @@ namespace BusinessLogicLayer.Operations
             else if (sender is ComboBox)
             {
                 (sender as ComboBox).BackColor = Color.White;
+            }
+            else if (sender is MaskedTextBox)
+            {
+                (sender as MaskedTextBox).BackColor = Color.White;
             }
 
         }

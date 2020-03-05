@@ -46,7 +46,7 @@
             // txtBox_studentNumber
             // 
             this.txtBox_studentNumber.Location = new System.Drawing.Point(268, 42);
-            this.txtBox_studentNumber.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtBox_studentNumber.Margin = new System.Windows.Forms.Padding(6);
             this.txtBox_studentNumber.Name = "txtBox_studentNumber";
             this.txtBox_studentNumber.Size = new System.Drawing.Size(292, 31);
             this.txtBox_studentNumber.TabIndex = 1;
@@ -54,7 +54,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(650, 38);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(6);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(150, 44);
             this.btn_delete.TabIndex = 2;
@@ -66,11 +66,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(868, 152);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.txtBox_studentNumber);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormDeleteStudent";
             this.Text = "Delete Student";
             this.ResumeLayout(false);

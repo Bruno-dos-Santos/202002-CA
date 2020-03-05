@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Repository;
+﻿using BusinessLogicLayer.Operations;
+using DataAccessLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,13 +21,17 @@ namespace collegium.Students
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            var studentRepository = new StudentRepository();
 
-            var studentNumber = Convert.ToInt32(txtBox_studentNumber.Text);
+            if (GeneralTools.ConfirmationBox("Are you sure you want to delete this student?") == true)
+            {
+                var studentRepository = new StudentRepository();
 
-            studentRepository.Delete(studentNumber);
+                var studentNumber = Convert.ToInt32(txtBox_studentNumber.Text);
 
-            Close();
+                studentRepository.Delete(studentNumber);
+
+                Close();
+            }
         }
     }
 }

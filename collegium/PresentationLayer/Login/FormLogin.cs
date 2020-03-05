@@ -65,5 +65,14 @@ namespace collegium.Login
             if (GeneralTools.ConfirmationBox("this action will close the application, confirm?"))
                 Application.Exit();
         }
+        private void txtBox_Leave(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Leave(sender, e);
+        }
+        private void txtBox_Enter(object sender, EventArgs e)
+        {
+            GeneralTools.txtBox_Enter(sender, e);
+        }
+
     }
 }
